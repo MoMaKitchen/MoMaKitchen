@@ -16,6 +16,14 @@
 ## Project Overview
 We present MoMa-Kitchen, a benchmark dataset with over 100k auto-generated samples featuring affordance-grounded manipulation positions and egocentric RGB-D data, and propose NavAff, a lightweight model that learns optimal navigation termination for seamless manipulation transitions. Our approach generalizes across diverse robotic platforms and arm configurations, addressing the critical gap between navigation proximity and manipulation readiness in mobile manipulation. 
 
+## <a name="todo"></a> Status
+Recently, there have been many emails inquiring about the release timeline of MoMa-Kitchen. Therefore, updating the to-do list.
+
+- [x] Paper uploaded to arXiv  
+- [ ] MoMa-Kitchen Dataset release(after acceptance)
+- [ ] NavAff Model release
+- [ ] Data Collection Code and Assets release
+
 
 ## Code
 Will coming soon~~~
