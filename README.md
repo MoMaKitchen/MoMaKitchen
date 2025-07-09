@@ -7,7 +7,7 @@
 
 <div>
     <a href='https://arxiv.org/abs/2503.11081' target='_blank'><img src='https://img.shields.io/badge/Paper-Arxiv-red'></a>
-<!--     <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a> -->
+    <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a>
 </div>
 
 </div>
@@ -20,7 +20,7 @@ We present MoMa-Kitchen, a benchmark dataset with over 100k auto-generated sampl
 Recently, there have been many emails inquiring about the release timeline of MoMa-Kitchen. Therefore, updating the to-do list.
 
 - [x] Paper uploaded to arXiv  
-- [ ] MoMa-Kitchen Dataset release(after acceptance)
+- [ ] MoMa-Kitchen Dataset release(Will be very soon. The author has recently had many deadlines, so please wait a while.)
 - [ ] NavAff Model release
 - [ ] Data Collection Code and Assets release
 
