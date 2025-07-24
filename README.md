@@ -53,6 +53,8 @@ Then unzip this file and change the `info_root` path in `config.yaml`.
 Download the RGBD and processed point cloud data in this url:
 (coming soon)
 
+(Maybe I should transfer a tiny subset of data first for code running.)
+
 ## Code
 Start training 
 
