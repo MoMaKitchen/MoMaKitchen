@@ -1,5 +1,4 @@
 import numpy as np
-# auc
 from sklearn.metrics import roc_auc_score
 from scipy.stats import pearsonr
 # pearson_corr, _ = pearsonr(t_true, p_score)
@@ -9,8 +8,21 @@ def SIM(map1, map2, eps=1e-12):
     intersection = np.minimum(map1, map2)
     return np.sum(intersection)
 
+def cosine_similarity(map1, map2, eps=1e-12):
+    """
+    Compute the cosine similarity between two maps.
+    """
+    map1 = map1.flatten()
+    map2 = map2.flatten()
+    
+    dot_product = np.dot(map1, map2)
+    norm_map1 = np.linalg.norm(map1) + eps
+    norm_map2 = np.linalg.norm(map2) + eps
+    
+    return dot_product / (norm_map1 * norm_map2)
 
-def cal_metric(preds: list, gts: list) -> dict:
+
+def cal_metric_new(preds: list, gts: list) -> dict:
     """
     Calculate metrics
     Args:
@@ -19,49 +31,38 @@ def cal_metric(preds: list, gts: list) -> dict:
     Returns:
         (dict) metrics
     """
-    # all_num = 24656
-    # add auc and sim and iou
     num = len(preds)
-    mae = 0
-    mse = 0
     log_mse = 0
     pearson_corr_sum = 0
     SIM_matrix = np.zeros(num)
-    cIOU = 0
-    for i in range(len(preds)):
-        # mae
-        mae += np.mean(np.abs(preds[i] - gts[i]))
-        mse += np.mean((preds[i] - gts[i]) ** 2)
-
-        non_zero_idx = gts[i] != 0
+    
+    for i in range(num):        
         log_mse += np.mean((np.log1p(gts[i]) - np.log1p(preds[i])) ** 2)
-
-        gts_row = gts[i].flatten()  # 或 gts[i] 如果是二维列表也适用
+        
+        gts_row = gts[i].flatten()
         preds_row = preds[i].flatten()
-
+        
         valid_idx = (~np.isnan(gts_row)) & (~np.isnan(preds_row)) & (~np.isinf(gts_row)) & (~np.isinf(preds_row))
         gts_clean = gts_row[valid_idx]
         preds_clean = preds_row[valid_idx]
-        pearson_corr, _ = pearsonr(gts_clean, preds_clean)
+        
+        if len(gts_clean) > 1 and len(preds_clean) > 1:
+            pearson_corr, _ = pearsonr(gts_clean, preds_clean)
+        else:
+            pearson_corr = 0
+        
         pearson_corr_sum += pearson_corr
-
-        # sim
-        SIM_matrix[i] = SIM(preds[i], gts[i])
-
-        # cIoU
-        intersect = np.sum(np.minimum(preds[i], gts[i]))
-        union = np.sum(np.maximum(preds[i], gts[i]))
-        iou_continuous = intersect / union if union > 0 else 0
-        cIOU += iou_continuous
-
+        
+        # Compute cosine similarity
+        SIM_matrix[i] = cosine_similarity(preds[i], gts[i])
+    
     sim = np.mean(SIM_matrix)
-    metrics = {}
-    metrics['mae'] = mae / num
-    metrics['mse'] = mse / num
-    metrics['rmse'] = np.sqrt(metrics['mse'])
-    metrics['log_mse'] = log_mse / num
-    metrics['pearson_corr'] = pearson_corr_sum / num
-    metrics['sim'] = sim
-    metrics['ciou'] = cIOU / num
-
+    
+    metrics = {
+        'rmse': np.sqrt(mse / num),
+        'log_mse': log_mse / num,
+        'pearson_corr': pearson_corr_sum / num,
+        'sim': sim,
+    }
+    
     return metrics
