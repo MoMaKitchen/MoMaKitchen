@@ -44,8 +44,11 @@ pip install -r requirements.txt
 
 ## Data Preparation
 
-Download the robot info data in this url:
-(coming soon)
+Download the robot info data in the Google Drive:
+[24.7MB](https://drive.google.com/file/d/1YnfyRBSM9gOk8rmSHN8q40nHlfhNTUgY/view?usp=sharing)
+
+Then unzip this file and change the `info_root` path in `config.yaml`.
+
 
 Download the RGBD and point cloud data in this url:
 (coming soon)
