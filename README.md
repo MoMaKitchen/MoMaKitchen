@@ -50,7 +50,7 @@ Download the robot info data in the Google Drive:
 Then unzip this file and change the `info_root` path in `config.yaml`.
 
 
-Download the RGBD and point cloud data in this url:
+Download the RGBD and processed point cloud data in this url:
 (coming soon)
 
 ## Code
