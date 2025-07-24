@@ -1,0 +1,5 @@
+hydra-core=1.3.2
+omegaconf
+random
+numpy
+einops

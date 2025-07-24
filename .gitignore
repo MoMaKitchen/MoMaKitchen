@@ -1,0 +1,9 @@
+.ftpignore
+.ftpconfig
+.vscode
+
+*.zip
+
+runs/
+.ipynb_checkpoints/
+__pycache__/

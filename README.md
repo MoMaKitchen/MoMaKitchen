@@ -19,10 +19,42 @@ We present MoMa-Kitchen, a benchmark dataset with over 100k auto-generated sampl
 ## <a name="todo"></a> Status
 
 - [x] Paper uploaded to arXiv  
-- [ ] MoMa-Kitchen Dataset release(Will be very soon. The author has recently had many deadlines, so please wait a while.)
-- [ ] NavAff Model release
+- [ ] MoMa-Kitchen Dataset release (Transferring. It's a big one, so we need to wait.)
+- [x] NavAff Model Training Code release
 - [ ] Data Collection Code and Assets release
 
+## Installation
+
+### Conda Environment
+1. Create a conda environment with python 3.8
+```bash
+conda create --name MoMaKitchen python=3.8
+conda activate MoMaKitchen
+```
+2. Install Pytorch 
+
+Please Change to your cuda version
+```bash
+pip install torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1 --index-url https://download.pytorch.org/whl/cu124
+```
+3. Install Main Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+## Data Preparation
+
+Download the robot info data in this url:
+(coming soon)
+
+Download the RGBD and point cloud data in this url:
+(coming soon)
 
 ## Code
-Will coming soon~~~
+Start training 
+
+`
+bash run_on_ali.sh
+`
+
+The training process cost nearly a 12h on a single A100 GPU.
