@@ -26,14 +26,14 @@ We present MoMa-Kitchen, a benchmark dataset with over 100k auto-generated sampl
 ## Installation
 
 ### Conda Environment
-1. Create a conda environment with python 3.8
+1. Create a conda environment with Python 3.8
 ```bash
 conda create --name MoMaKitchen python=3.8
 conda activate MoMaKitchen
 ```
 2. Install Pytorch 
 
-Please Change to your cuda version
+Please change to your CUDA version
 ```bash
 pip install torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1 --index-url https://download.pytorch.org/whl/cu124
 ```
@@ -44,21 +44,35 @@ pip install -r requirements.txt
 
 ## Data Preparation
 
-Download the robot info data in the Google Drive:
+Download the robot info data from the Google Drive:
 [24.7MB](https://drive.google.com/file/d/1YnfyRBSM9gOk8rmSHN8q40nHlfhNTUgY/view?usp=sharing)
 
 Then unzip this file and change the `info_root` path in `config.yaml`.
 
 
-Download the RGBD and processed point cloud data in this url:
+Download the RGBD and processed point cloud data at this URL:
 [https://huggingface.co/datasets/pingruizhang1/MoMaKitchen](https://huggingface.co/datasets/pingruizhang1/MoMaKitchen)
-(coming soon)
+(Transferring)
+
+It is recommended to use Git LFS to download the dataset.
+```bash
+cd Path/To/Your/Datafolder
+git lfs install
+git clone https://huggingface.co/datasets/pingruizhang1/MoMaKitchen.git
+```
+
+(Option) After downloading, you can delete the .git folder in the dataset directory to save space.
+```bash
+rm -rf .git 
+```
+Then remember to change the `rgbd_root` to Path/To/Your/Datafolder in `config.yaml`.
+
 
 ## Code
 Start training 
 
-`
+```bash
 bash run_on_ali.sh
-`
+```
 
-The training process cost nearly a 12h on a single A100 GPU.
+The training process costs nearly 12h on a single A100 GPU.
