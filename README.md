@@ -72,7 +72,7 @@ Then remember to change the `rgbd_root` to Path/To/Your/Datafolder in `config.ya
 Start training 
 
 ```bash
-bash run_on_ali.sh
+bash train_on_ali.sh
 ```
 
 The training process costs nearly 12h on a single A100 GPU.
