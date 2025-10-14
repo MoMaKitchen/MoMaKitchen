@@ -51,15 +51,7 @@ Then unzip this file and change the `info_root` path in `config.yaml`.
 
 
 Download the RGBD and processed point cloud data at this URL:
-[https://huggingface.co/datasets/pingruizhang1/MoMaKitchen](https://huggingface.co/datasets/pingruizhang1/MoMaKitchen)
-(Transferring)
-
-It is recommended to use Git LFS to download the dataset.
-```bash
-cd Path/To/Your/Datafolder
-git lfs install
-git clone https://huggingface.co/datasets/pingruizhang1/MoMaKitchen.git
-```
+[https://huggingface.co/datasets/IPEC-COMMUNITY/MoMa-Kitchen-Data](https://huggingface.co/datasets/IPEC-COMMUNITY/MoMa-Kitchen-Data)
 
 (Option) After downloading, you can delete the .git folder in the dataset directory to save space.
 ```bash
