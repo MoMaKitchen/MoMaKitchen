@@ -19,7 +19,7 @@ We present MoMa-Kitchen, a benchmark dataset with over 100k auto-generated sampl
 ## <a name="todo"></a> Status
 
 - [x] Paper uploaded to arXiv  
-- [ ] MoMa-Kitchen Dataset release (Transferring. It's a big one, so we need to wait.)
+- [x] MoMa-Kitchen Dataset release
 - [x] NavAff Model Training Code release
 - [ ] Data Collection Code and Assets release
 
